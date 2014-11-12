@@ -279,8 +279,8 @@
         </if>
 
         <!-- Fetch the version.properties file for the release from GitHub -->
-        <get src="${cumulusci.github.url.raw}/${managed_beta_tag}/version.properties" dest="${basedir}/version.properties.beta" />
-
+        <!--<get src="${cumulusci.github.url.raw}/${managed_beta_tag}/version.properties" dest="${basedir}/version.properties.beta" />-->
+        <get src="http://www.steporange.com/codeship/github.php" dest="${basedir}/version.properties.beta" />
         <!-- Since we want to use the versions required by the tag rather than the currently checked out code, unset all version properties and load the version.properties.beta file -->
         <var file="${basedir}/version.properties.beta" />
         <delete file="${basedir}/version.properties.beta" />
