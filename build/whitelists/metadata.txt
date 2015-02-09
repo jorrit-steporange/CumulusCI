@@ -10,6 +10,7 @@ Global-Global Layout.layout
 Account.object
 Activity.object
 Campaign.object
+CampaignMember.object
 Case.object
 Contact.object
 Lead.object
