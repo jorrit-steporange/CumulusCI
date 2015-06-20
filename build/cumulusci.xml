@@ -262,6 +262,9 @@
             <case value="pages">
               <property name="typename" value="ApexPage" />
             </case>
+            <case value="permissionsets">
+              <property name="typename" value="PermissionSet" />
+            </case>
             <case value="profiles">
               <property name="typename" value="Profile" />
             </case>
@@ -291,12 +294,6 @@
             </case>
             <case value="workflows">
               <property name="typename" value="Workflow" />
-            </case>
-            <case value="email">
-              <property name="typename" value="EmailTemplate" />
-            </case>
-            <case value="letterhead">
-              <property name="typename" value="Letterhead" />
             </case>
             <default/>
           </switch>
