@@ -74,6 +74,7 @@
     <target name="deployWithoutTest">
         <echo>----------------------------------------------------------------------------</echo>
         <antcall target="preDeploy" />
+        <antcall target="stripPermissionSet" />
         <sf:deploy username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" deployRoot="src" runAllTests="false" maxPoll="${cumulusci.maxPoll.notest}" />
         <antcall target="postDeploy" />
     </target>
@@ -165,7 +166,9 @@
             </else>
         </if>
     </target>
-
+	<target name="stripPermissionSet">
+		<stripPermissionSets dir="src" />	
+	</target>
     <!-- deployCI: Does a full build including uninstalling previously deployed unpackaged code, updating managed package versions, and then deploying with all tests -->
     <!-- !!!WARNING!!!: DO NOT run this against a real production org as it will delete everything.  It is designed to clear the target org to ensure a clean build test. -->
     <target name="deployCI">

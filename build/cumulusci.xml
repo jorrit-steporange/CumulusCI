@@ -907,5 +907,21 @@
       </for>
     </sequential>
   </macrodef>
-
+<macrodef name="stripPermissionSets" description="Removes some nodes">
+  	<attribute name="dir" description="A directory containing metadata" />
+	<sequential>
+		<echo>Cleaning up Permission Sets</echo>
+		<for param="file">
+			<path>
+				<fileset dir="@{dir}">
+					<include name="**/permissionsets/*.permissionset" />
+				</fileset>
+			</path>
+			<sequential>
+				<xslt in="@{file}" out="@{file}.stripped" style="${cumulus_ci.basedir}/xsl/remove_false_userpermissions.xsl" />
+				<move file="@{file}.stripped" tofile="@{file}" />
+	        </sequential>
+		</for>
+	</sequential>
+  </macrodef>
 </project>
